@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('ban', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_part');
+            $table->string('kode_part')->unique();
             $table->string('nama_barang')->nullable();
             $table->string('nama_merk')->nullable();
             $table->string('tipe_ban')->nullable();

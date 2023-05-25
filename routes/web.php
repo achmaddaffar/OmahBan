@@ -22,4 +22,6 @@ Route::get('dashboard', function () {
 })->name('dashboard');
 Route::controller(BanController::class)->prefix('ban')->group(function () {
     Route::get('', 'index')->name('ban');
+    Route::get('edit/{id}', 'edit')->name('ban.edit');
+    Route::get('hapus/{id}', 'hapus')->name('ban.hapus');
 });
