@@ -22,6 +22,9 @@ Route::get('dashboard', function () {
 })->name('dashboard');
 Route::controller(BanController::class)->prefix('ban')->group(function () {
     Route::get('', 'index')->name('ban');
+    Route::get('tambah', 'tambah')->name('ban.tambah');
+    Route::post('tambah', 'simpan')->name('ban.tambah.simpan');
     Route::get('edit/{id}', 'edit')->name('ban.edit');
+    Route::post('edit/{id}', 'update')->name('ban.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('ban.hapus');
 });
