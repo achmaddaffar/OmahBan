@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 Route::get('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -27,4 +28,13 @@ Route::controller(BanController::class)->prefix('ban')->group(function () {
     Route::get('edit/{id}', 'edit')->name('ban.edit');
     Route::post('edit/{id}', 'update')->name('ban.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('ban.hapus');
+});
+Route::controller(UserController::class)->prefix('user')->group(function () {
+    // Register
+    Route::get('register', 'register')->name('user.register');
+    Route::post('register', 'registerAction')->name('register.action');
+
+    // Login
+    Route::get('login', 'login')->name('user.login');
+    Route::post('login', 'loginAction')->name('login.action');
 });
