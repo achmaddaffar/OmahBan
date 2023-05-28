@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BanController;
 use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\strukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 Route::get('dashboard', function () {
     return view('dashboard');
@@ -36,4 +37,12 @@ Route::controller(PembeliController::class)->prefix('pembeli')->group(function (
     Route::get('edit/{id}', 'edit')->name('pembeli.edit');
     Route::post('edit/{id}', 'update')->name('pembeli.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('pembeli.hapus');
+});
+Route::controller(StrukController::class)->prefix('struk')->group(function () {
+    Route::get('', 'index')->name('struk');
+    Route::get('tambah', 'tambah')->name('struk.tambah');
+    Route::post('tambah', 'simpan')->name('struk.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('struk.edit');
+    Route::post('edit/{id}', 'update')->name('struk.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('struk.hapus');
 });

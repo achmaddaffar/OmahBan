@@ -11,12 +11,12 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="kode_part">ID Pembeli</label>
+                    <label for="id_pembeli">ID Pembeli</label>
                     <input type="text" class="form-control" id="id_pembeli" name="id_pembeli"
                         value="{{ isset($pembeli) ? $pembeli->id_pembeli : '' }}">
                 </div>
                 <div class="form-group">
-                    <label for="nama_barang">Nama Pembeli</label>
+                    <label for="nama_Pembeli">Nama Pembeli</label>
                     <input type="text" class="form-control" id="nama_pembeli" name="nama_pembeli"
                         value="{{ isset($pembeli) ? $pembeli->nama_pembeli : '' }}">
                 </div>
