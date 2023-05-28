@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BanController;
+use App\Http\Controllers\PembeliController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,12 @@ Route::controller(BanController::class)->prefix('ban')->group(function () {
     Route::get('edit/{id}', 'edit')->name('ban.edit');
     Route::post('edit/{id}', 'update')->name('ban.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('ban.hapus');
+});
+Route::controller(PembeliController::class)->prefix('pembeli')->group(function () {
+    Route::get('', 'index')->name('pembeli');
+    Route::get('tambah', 'tambah')->name('pembeli.tambah');
+    Route::post('tambah', 'simpan')->name('pembeli.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('pembeli.edit');
+    Route::post('edit/{id}', 'update')->name('pembeli.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('pembeli.hapus');
 });
