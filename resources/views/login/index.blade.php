@@ -28,6 +28,7 @@
                         Login
                     </button>
                     <a class="btn btn-danger" href="{{ route('dashboard') }}">Back</a>
+                    <a class="btn btn-primary" href="{{route('user.register') }}">register</a>
                 </div>
             </form>
         </div>

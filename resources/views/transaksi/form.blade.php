@@ -33,10 +33,11 @@
                                     1
                                 </td>
                                 <td>
-                                    <input type="text" name="id_transaksi" id="id_transaksi" class="form-control id_transaksi">
+                                    <input type="text" name="id_transaksi[0]" id="id_transaksi"
+                                        class="form-control id_transaksi">
                                 </td>
                                 <td>
-                                    <select name="id_struk" id="id_struk" class="form-control id_struk">
+                                    <select name="id_struk[0]" id="id_struk" class="form-control id_struk">
                                         <option value="">Pilih ID Struk</option>
                                         @foreach ($struk as $struk)
                                             <option value="{{ $struk->id }}">{{ $struk->id }}</option>
@@ -44,7 +45,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="id_pembeli" id="nama_pembeli" class="form-control nama_pembeli">
+                                    <select name="id_pembeli[0]" id="nama_pembeli" class="form-control nama_pembeli">
                                         <option value="">Pilih Pembeli</option>
                                         @foreach ($pembeli as $pembeli)
                                             <option value="{{ $pembeli->id }}">{{ $pembeli->nama_pembeli }}</option>
@@ -52,14 +53,14 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="id_mekanik" id="nama_mekanik" class="form-control nama_mekanik">
+                                    <select name="id_mekanik[0]" id="nama_mekanik" class="form-control nama_mekanik">
                                         @foreach ($mekanik as $mekanik)
                                             <option value="{{ $mekanik->id }}">{{ $mekanik->nama_mekanik }}</option>
                                         @endforeach
                                     </select>
                                 </td>
                                 <td>
-                                    <select name="kode_part" id="nama_barang" class="form-control nama_barang">
+                                    <select name="kode_part[0]" id="nama_barang" class="form-control nama_barang">
                                         @foreach ($ban as $ban)
                                             <option data-harga="{{ $ban->harga }}" value="{{ $ban->kode_part }}">
                                                 {{ $ban->nama_barang }}
@@ -68,12 +69,12 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control jumlah">
+                                    <input type="number" name="jumlah[0]" id="jumlah" class="form-control jumlah">
                                 </td>
                                 <td>
-                                    <input type="number" name="harga" id="harga" class="form-control harga">
+                                    <input type="number" name="harga[0]" id="harga" class="form-control harga">
                                 </td>
-                                <td><input type="number" name="total_harga" id="total_harga"
+                                <td><input type="number" name="total_harga[0]" id="total_harga"
                                         class="form-control total_harga"></td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a>
@@ -94,20 +95,24 @@
         $('.add_more').on('click', function(e) {
             e.preventDefault();
             var namaPembeli = $('.nama_pembeli').html();
+            var idStruk = $('.id_struk').html();
             var namaMekanik = $('.nama_mekanik').html();
             var namaBarang = $('.nama_barang').html();
             var jumlahbaris = ($('.tambahProduk tr').length) + 1;
             console.log(jumlahbaris)
             var tr = '<tr><td class="no">' + jumlahbaris + '</td>' +
-                '<td><select name="nama_pembeli" id="nama_pembeli" class="form-control nama_pembeli">' +
+                '<td><input type="text" name="id_transaksi[' +(jumlahbaris - 1) + ']" id="id_transaksi" class="form-control id_transaksi"></td>' +
+                '<td><select name="id_struk[' +(jumlahbaris - 1) + ']" id="id_struk" class="form-control id_struk">' +
+                idStruk+'</select></td>' +
+                '<td><select name="id_pembeli[' +(jumlahbaris - 1) + ']" id="nama_pembeli" class="form-control nama_pembeli">' +
                 namaPembeli + '</select></td>' +
-                '<td><select name="nama_mekanik" id="nama_mekanik" class="form-control nama_mekanik">' +
+                '<td><select name="id_mekanik[' +(jumlahbaris - 1) + ']" id="nama_mekanik" class="form-control nama_mekanik">' +
                 namaMekanik + '</select></td>' +
-                '<td><select name="nama_barang" id="nama_barang" class="form-control nama_barang">' +
+                '<td><select name="kode_part[' +(jumlahbaris - 1) + ']" id="nama_barang" class="form-control nama_barang">' +
                 namaBarang + '</select></td>' +
-                '<td><input type="number" name="jumlah" id="jumlah" class="form-control jumlah"></td>' +
-                '<td><input type="number" name="harga" id="harga" class="form-control harga"></td>' +
-                '<td><input type="number" name="total_harga" id="total_harga" class="form-control total_harga"></td>' +
+                '<td><input type="number" name="jumlah[' +(jumlahbaris - 1) + ']" id="jumlah" class="form-control jumlah"></td>' +
+                '<td><input type="number" name="harga[' +(jumlahbaris - 1) + ']" id="harga" class="form-control harga"></td>' +
+                '<td><input type="number" name="total_harga[' +(jumlahbaris - 1) + ']" id="total_harga" class="form-control total_harga"></td>' +
                 '<td><a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a></td>'; +
             $('.tambahProduk').append(tr);
         });
