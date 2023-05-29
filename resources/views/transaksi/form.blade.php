@@ -33,7 +33,8 @@
                                     1
                                 </td>
                                 <td>
-                                    <input type="text" name="id_transaksi" id="id_transaksi" class="form-control id_transaksi">
+                                    <input type="text" name="id_transaksi" id="id_transaksi"
+                                        class="form-control id_transaksi">
                                 </td>
                                 <td>
                                     <select name="id_struk" id="id_struk" class="form-control id_struk">
@@ -94,16 +95,20 @@
         $('.add_more').on('click', function(e) {
             e.preventDefault();
             var namaPembeli = $('.nama_pembeli').html();
+            var idStruk = $('.id_struk').html();
             var namaMekanik = $('.nama_mekanik').html();
             var namaBarang = $('.nama_barang').html();
             var jumlahbaris = ($('.tambahProduk tr').length) + 1;
             console.log(jumlahbaris)
             var tr = '<tr><td class="no">' + jumlahbaris + '</td>' +
-                '<td><select name="nama_pembeli" id="nama_pembeli" class="form-control nama_pembeli">' +
+                '<td><input type="text" name="id_transaksi" id="id_transaksi" class="form-control id_transaksi"></td>' +
+                '<td><select name="id_struk" id="id_struk" class="form-control id_struk">' +
+                idStruk+'</select></td>' +
+                '<td><select name="id_pembeli" id="nama_pembeli" class="form-control nama_pembeli">' +
                 namaPembeli + '</select></td>' +
-                '<td><select name="nama_mekanik" id="nama_mekanik" class="form-control nama_mekanik">' +
+                '<td><select name="id_mekanik" id="nama_mekanik" class="form-control nama_mekanik">' +
                 namaMekanik + '</select></td>' +
-                '<td><select name="nama_barang" id="nama_barang" class="form-control nama_barang">' +
+                '<td><select name="kode_part" id="nama_barang" class="form-control nama_barang">' +
                 namaBarang + '</select></td>' +
                 '<td><input type="number" name="jumlah" id="jumlah" class="form-control jumlah"></td>' +
                 '<td><input type="number" name="harga" id="harga" class="form-control harga"></td>' +
