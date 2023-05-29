@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pembeli;
 use App\Models\struk;
 use Illuminate\Http\Request;
 
@@ -11,18 +12,20 @@ class strukController extends Controller
     public function index()
     {
         $struk = struk::all();
-        return view('struk.index', ['struk' => $struk]);
+        return view('struk.index', [
+            'struk' => $struk
+        ]);
     }
     public function tambah()
     {
-        return view('struk.form');
+        $pembeli = Pembeli::all();
+        return view('struk.form', ['pembeli' => $pembeli]);
     }
     public function simpan(Request $request)
     {
         $data = [
             'id_struk' => $request->id_struk,
-            'nama_struk' => $request->nama_struk,
-
+            'id_pembeli' => $request->id_pembeli,
         ];
         Struk::create($data);
         return redirect()->route('struk');
@@ -36,8 +39,7 @@ class strukController extends Controller
     {
         $data = [
             'id_struk' => $request->id_struk,
-            'nama_struk' => $request->nama_struk,
-
+            'id_pembeli' => $request->id_pembeli,
         ];
         Struk::find($id)->update($data);
         return redirect()->route('struk');

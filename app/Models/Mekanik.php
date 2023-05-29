@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class struk extends Model
+class Mekanik extends Model
 {
-    protected $table = 'struk';
-    protected $fillable = ['id_struk', 'id_pembeli'];
+    protected $table = 'mekanik';
+    protected $fillable = ['id_mekanik', 'nama_mekanik'];
+
 }
