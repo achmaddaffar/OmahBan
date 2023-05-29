@@ -31,7 +31,7 @@ class BanController extends Controller
     }
     public function edit($id)
     {
-        $ban = Ban::find($id)->first();
+        $ban = Ban::find($id);
         return view('ban.form', ['ban' => $ban]);
     }
     public function update($id, Request $request)

@@ -15,8 +15,8 @@
                             <th>No</th>
                             <th>ID Struk</th>
                             <th>ID Pembeli</th>
-                            <th>Tanggal Transaksi
-                            <th>
+                            <th>Tanggal Transaksi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

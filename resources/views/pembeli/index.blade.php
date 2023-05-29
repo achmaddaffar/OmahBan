@@ -19,7 +19,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php($no = 1)
+                        @php($no = 0)
                         @foreach ($pembeli as $row)
                             <tr>
                                 <th>{{ $no++ }}</th>

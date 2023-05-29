@@ -29,7 +29,7 @@ class PembeliController extends Controller
     }
     public function edit($id)
     {
-        $pembeli = Pembeli::find($id)->first();
+        $pembeli = Pembeli::find($id);
         return view('pembeli.form', ['pembeli' => $pembeli]);
     }
     public function update($id, Request $request)

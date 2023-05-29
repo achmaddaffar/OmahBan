@@ -51,8 +51,18 @@ class TransaksiController extends Controller
 
     public function edit($id)
     {
-        $transaksi = Transaksi::find($id)->first();
-        return view('transaksi.form', ['transaksi' => $transaksi]);
+        $transaksi = Transaksi::find($id);
+        $struk = Struk::all();
+        $ban = Ban::all();
+        $pembeli = Pembeli::all();
+        $mekanik = Mekanik::all();
+        return view('transaksi.form', [
+            'transaksi' => $transaksi,
+            'struk' => $struk,
+            'ban' => $ban,
+            'pembeli' => $pembeli,
+            'mekanik' => $mekanik,
+        ]);
     }
     public function update($id, Request $request)
     {
