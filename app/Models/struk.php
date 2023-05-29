@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class struk extends Model
 {
     protected $table = 'struk';
-    protected $fillable = ['id_struk', 'id_pembeli', 'tanggal_transaksi'];
+    protected $fillable = ['id_struk', 'id_pembeli'];
 }

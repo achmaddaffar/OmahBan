@@ -26,7 +26,7 @@
                                 <th>{{ $no++ }}</th>
                                 <td>{{ $row->id_struk }}</td>
                                 <td>{{ $row->id_pembeli }}</td>
-                                <td>{{ $row->tanggal_transaksi }}</td>
+                                <td>{{ $row->created_at }}</td>
                                 <td>
                                     <a href="{{ route('struk.edit', $row->id) }}" class="btn btn-warning">edit</a>
                                     <a href="{{ route('struk.hapus', $row->id) }}" class="btn btn-danger">hapus</a>

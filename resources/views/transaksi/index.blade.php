@@ -29,7 +29,12 @@
                             <tr>
                                 <th>{{ $no++ }}</th>
                                 <td>{{ $row->id_transaksi }}</td>
-                                <td>{{ $row->nama_transaksi }}</td>
+                                <td>{{ $row->id_struk }}</td>
+                                <td>{{ $row->kode_part }}</td>
+                                <td>{{ $row->id_pembeli }}</td>
+                                <td>{{ $row->id_mekanik }}</td>
+                                <td>{{ $row->jumlah }}</td>
+                                <td>{{ $row->total_harga }}</td>
                                 <td>
                                     <a href="{{ route('transaksi.edit', $row->id) }}" class="btn btn-warning">edit</a>
                                     <a href="{{ route('transaksi.hapus', $row->id) }}" class="btn btn-danger">hapus</a>

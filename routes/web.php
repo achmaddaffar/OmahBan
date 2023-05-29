@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BanController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MekanikController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\strukController;
@@ -18,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
+Route::get('/', [UserController::class, 'login'])->name('login');
+Route::controller(UserController::class)->prefix('user')->group(function () {
+    Route::get('register', 'register')->name('user.register');
+    Route::post('register', 'registerAction')->name('register.action');
+    Route::get('login', 'login')->name('user.login');
+    Route::post('login', 'loginAction')->name('login.action');
 });
 Route::get('dashboard', function () {
     return view('dashboard');

@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->string('id_struk')->unique();
             $table->string('id_pembeli');
             $table->foreign('id_pembeli')->references('id_pembeli')->on('pembeli')->onDelete('cascade');
-            $table->date('tanggal_transaksi');
             $table->timestamps();
         });
     }
