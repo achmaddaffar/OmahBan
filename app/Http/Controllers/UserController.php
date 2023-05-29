@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -41,16 +42,25 @@ class UserController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'password' =>'required',
+            'password' => 'required',
         ]);
 
-        if (Auth::attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-        ])) {
+        if (
+            Auth::attempt([
+                'email' => $request->email,
+                'password' => $request->password,
+            ])
+        ) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
         return back()->withErrors('password', 'Wrong email or password!');
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return redirect()->route('user.login');
     }
 }
