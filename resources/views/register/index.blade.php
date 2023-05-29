@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             @if ($errors->any())
                 @foreach ($errors->all() as $err)
@@ -25,6 +25,7 @@
                     <label>Confirm Password <span class="text-danger">*</span></label>
                     <input class="form-control" type="password" name="confirm_password" />
                 </div>
+                <br>
                 <div class="nb-3">
                     <button class="btn btn-primary">
                         Register

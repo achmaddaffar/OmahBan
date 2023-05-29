@@ -30,11 +30,8 @@ Route::controller(BanController::class)->prefix('ban')->group(function () {
     Route::get('hapus/{id}', 'hapus')->name('ban.hapus');
 });
 Route::controller(UserController::class)->prefix('user')->group(function () {
-    // Register
     Route::get('register', 'register')->name('user.register');
     Route::post('register', 'registerAction')->name('register.action');
-
-    // Login
     Route::get('login', 'login')->name('user.login');
     Route::post('login', 'loginAction')->name('login.action');
 });
