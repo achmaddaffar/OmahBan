@@ -27,7 +27,7 @@ class MekanikController extends Controller
     }
     public function edit($id)
     {
-        $mekanik = Mekanik::find($id)->first();
+        $mekanik = Mekanik::find($id);
         return view('mekanik.form', ['mekanik' => $mekanik]);
     }
     public function update($id, Request $request)
