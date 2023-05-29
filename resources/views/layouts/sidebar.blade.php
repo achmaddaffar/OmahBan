@@ -45,6 +45,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Struk</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('user.logout') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Logout</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

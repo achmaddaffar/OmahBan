@@ -31,29 +31,6 @@ class TransaksiController extends Controller
         ]);
     }
 
-    // public function simpan(Request $request)
-    // {
-    //     $n = sizeof($request->id_transaksi);
-    //     for ($i = 0; $i < $n; $i++) {
-    //         $id_transaksi2 = $request->id_transaksi[$i];
-    //         $id_struk2 = $request->id_struk[$i];
-    //         $kode_part2 = $request->kode_part[$i];
-    //         $id_pembeli2 = $request->id_pembeli[$i];
-    //         $id_mekanik2 = $request->id_mekanik[$i];
-    //         $data = [
-    //             'id_transaksi' => $id_transaksi2,
-    //             'id_struk' => struk::find($id_struk2)->id_struk,
-    //             'kode_part' => Ban::find($kode_part2)->kode_part,
-    //             'id_pembeli' => Pembeli::find($id_pembeli2)->id_pembeli,
-    //             'id_mekanik' => Mekanik::find($id_mekanik2)->id_mekanik,
-    //             'jumlah' => $request->jumlah[$i],
-    //             'total_harga' => $request->total_harga[$i],
-    //         ];
-    //         Transaksi::create($data);
-    //     }
-    //     return redirect()->route('transaksi');
-    // }
-
     public function simpan(Request $request)
     {
         $n = sizeof($request->id_transaksi);
