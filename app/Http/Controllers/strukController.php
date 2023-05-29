@@ -27,12 +27,12 @@ class strukController extends Controller
             'id_struk' => $request->id_struk,
             'id_pembeli' => $request->id_pembeli,
         ];
-        Struk::create($data);
+        struk::create($data);
         return redirect()->route('struk');
     }
     public function edit($id)
     {
-        $struk = Struk::find($id)->first();
+        $struk = struk::find($id);
         return view('struk.form', ['struk' => $struk]);
     }
     public function update($id, Request $request)
@@ -41,12 +41,12 @@ class strukController extends Controller
             'id_struk' => $request->id_struk,
             'id_pembeli' => $request->id_pembeli,
         ];
-        Struk::find($id)->update($data);
+        struk::find($id)->update($data);
         return redirect()->route('struk');
     }
     public function hapus($id)
     {
-        Struk::find($id)->delete();
+        struk::find($id)->delete();
         return redirect()->route('struk');
     }
 }
