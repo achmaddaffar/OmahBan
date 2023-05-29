@@ -38,6 +38,11 @@ class TransaksiController extends Controller
         return redirect()->route('transaksi');
     }
 
+    public function store(Request $request)
+    {
+        return $request->all();
+    }
+
     public function edit($id)
     {
         $transaksi = Transaksi::find($id)->first();

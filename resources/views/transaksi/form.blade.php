@@ -2,8 +2,7 @@
 
 @section('title', 'Order')
 @section('contents')
-    <form
-        action="{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}"
+    <form action="{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.store') }}"
         method="post">
         @csrf
         <div class="card shadow mb-4">
