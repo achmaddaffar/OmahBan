@@ -15,6 +15,7 @@
                             <th>No</th>
                             <th>ID Pembeli</th>
                             <th>Nama Pembeli</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

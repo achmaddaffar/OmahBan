@@ -30,7 +30,7 @@
                     <button class="btn btn-primary">
                         Register
                     </button>
-                    <a class="btn btn-danger" href="{{ route('home') }}">Back</a>
+                    <a class="btn btn-danger" href="{{ route('user.login') }}">Back</a>
                 </div>
             </form>
         </div>
