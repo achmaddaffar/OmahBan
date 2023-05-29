@@ -101,18 +101,26 @@
             var jumlahbaris = ($('.tambahProduk tr').length) + 1;
             console.log(jumlahbaris)
             var tr = '<tr><td class="no">' + jumlahbaris + '</td>' +
-                '<td><input type="text" name="id_transaksi[' +(jumlahbaris - 1) + ']" id="id_transaksi" class="form-control id_transaksi"></td>' +
-                '<td><select name="id_struk[' +(jumlahbaris - 1) + ']" id="id_struk" class="form-control id_struk">' +
-                idStruk+'</select></td>' +
-                '<td><select name="id_pembeli[' +(jumlahbaris - 1) + ']" id="nama_pembeli" class="form-control nama_pembeli">' +
+                '<td><input type="text" name="id_transaksi[' + (jumlahbaris - 1) +
+                ']" id="id_transaksi" class="form-control id_transaksi"></td>' +
+                '<td><select name="id_struk[' + (jumlahbaris - 1) +
+                ']" id="id_struk" class="form-control id_struk">' +
+                idStruk + '</select></td>' +
+                '<td><select name="id_pembeli[' + (jumlahbaris - 1) +
+                ']" id="nama_pembeli" class="form-control nama_pembeli">' +
                 namaPembeli + '</select></td>' +
-                '<td><select name="id_mekanik[' +(jumlahbaris - 1) + ']" id="nama_mekanik" class="form-control nama_mekanik">' +
+                '<td><select name="id_mekanik[' + (jumlahbaris - 1) +
+                ']" id="nama_mekanik" class="form-control nama_mekanik">' +
                 namaMekanik + '</select></td>' +
-                '<td><select name="kode_part[' +(jumlahbaris - 1) + ']" id="nama_barang" class="form-control nama_barang">' +
+                '<td><select name="kode_part[' + (jumlahbaris - 1) +
+                ']" id="nama_barang" class="form-control nama_barang">' +
                 namaBarang + '</select></td>' +
-                '<td><input type="number" name="jumlah[' +(jumlahbaris - 1) + ']" id="jumlah" class="form-control jumlah"></td>' +
-                '<td><input type="number" name="harga[' +(jumlahbaris - 1) + ']" id="harga" class="form-control harga"></td>' +
-                '<td><input type="number" name="total_harga[' +(jumlahbaris - 1) + ']" id="total_harga" class="form-control total_harga"></td>' +
+                '<td><input type="number" name="jumlah[' + (jumlahbaris - 1) +
+                ']" id="jumlah" class="form-control jumlah"></td>' +
+                '<td><input type="number" name="harga[' + (jumlahbaris - 1) +
+                ']" id="harga" class="form-control harga"></td>' +
+                '<td><input type="number" name="total_harga[' + (jumlahbaris - 1) +
+                ']" id="total_harga" class="form-control total_harga"></td>' +
                 '<td><a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a></td>'; +
             $('.tambahProduk').append(tr);
         });
