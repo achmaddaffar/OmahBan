@@ -32,8 +32,12 @@ class strukController extends Controller
     }
     public function edit($id)
     {
-        $struk = Struk::find($id)->first();
-        return view('struk.form', ['struk' => $struk]);
+        $struk = Struk::find($id);
+        $pembeli = Pembeli::all();
+        return view('struk.form', [
+            'struk' => $struk,
+            'pembeli' => $pembeli
+        ]);
     }
     public function update($id, Request $request)
     {
