@@ -104,9 +104,14 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js"
+        integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/cjs/popper.min.js"
+        integrity="sha512-aVYFpZTHCqEDf+aCtROokVF2yI0TPQSn+RnpTtbCqoCWMgDYNTkptX2GzBXhCz28AS32EYUzza5xwDerTLXMtg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
+@yield('script')
 
 </html>

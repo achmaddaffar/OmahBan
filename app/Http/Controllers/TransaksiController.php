@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Ban;
+use App\Models\Pembeli;
+use App\Models\Mekanik;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -10,11 +13,15 @@ class TransaksiController extends Controller
     public function index()
     {
         $transaksi = Transaksi::all();
+
         return view('transaksi.index', ['transaksi' => $transaksi]);
     }
     public function tambah()
     {
-        return view('transaksi.form');
+        $ban = Ban::all();
+        $pembeli = Pembeli::all();
+        $mekanik = Mekanik::all();
+        return view('transaksi.form', ['ban' => $ban, 'pembeli' => $pembeli, 'mekanik' => $mekanik]);
     }
     public function simpan(Request $request)
     {
