@@ -27,15 +27,16 @@ Route::middleware(['guest'])->group(function () {
         Route::post('register', 'registerAction')->name('register.action');
         Route::get('login', 'login')->name('user.login');
         Route::post('login', 'loginAction')->name('login.action');
-        // Route::get('logout', 'logout')->name('user.logout');
     });
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/user/logout', [UserController::class, 'logout'])->name('user.logout');
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::controller(UserController::class)->group(function() {
+        Route::get('/user/logout', 'logout')->name('user.logout');
+        Route::get('dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+    });
     Route::controller(BanController::class)->prefix('ban')->group(function () {
         Route::get('', 'index')->name('ban');
         Route::get('tambah', 'tambah')->name('ban.tambah');
