@@ -37,6 +37,7 @@ class TransaksiController extends Controller
         Transaksi::create($data);
         return redirect()->route('transaksi');
     }
+
     public function edit($id)
     {
         $transaksi = Transaksi::find($id)->first();
