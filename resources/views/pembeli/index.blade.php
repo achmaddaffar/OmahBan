@@ -15,7 +15,7 @@
     @php($no = 0)
     @foreach ($pembeli as $row)
         <tr>
-            <th>{{ $no++ }}</th>
+            <th>{{ ++$no }}</th>
             <td>{{ $row->id_pembeli }}</td>
             <td>{{ $row->nama_pembeli }}</td>
             <td>
