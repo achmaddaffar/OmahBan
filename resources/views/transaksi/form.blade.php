@@ -1,15 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.form')
 @section('title', 'Order')
-@section('contents')
-    <form
-        action="{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}"
-        method="post">
-        @csrf
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Transaksi</h6>
-            </div>
-            <div class="card-body">
+@section('form-action')
+{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}
+@endsection
+@section('form-method','post')
+@section('form-content')
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -82,13 +77,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </form>
 @endsection
 @section('script')
     <script>
