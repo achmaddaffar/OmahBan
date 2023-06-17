@@ -19,7 +19,7 @@ class strukController extends Controller
     public function tambah()
     {
         $pembeli = Pembeli::all();
-        $id = Pembeli::max('id') + 1;
+        $id = "STRUK" . (Struk::max('id') + 1);
         return view('struk.form', [
             'pembeli' => $pembeli,
             'id' => $id
