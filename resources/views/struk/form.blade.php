@@ -9,7 +9,7 @@
     <div class="form-group">
         <label for="kode_part">ID Struk</label>
         <input type="text" class="form-control" id="id_struk" name="id_struk"
-            value="{{ isset($struk) ? $struk->id_struk : '' }}" {{ isset($struk) ? 'readonly' : '' }}>
+            value="{{ isset($struk) ? $struk->id_struk : $id }}" readonly>
     </div>
     <div class="form-group">
         <select name="id_pembeli" id="id_pembeli" class="form-control id_pembeli">

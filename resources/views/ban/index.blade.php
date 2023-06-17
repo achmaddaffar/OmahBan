@@ -12,6 +12,7 @@
     <th>Tipe Ban</th>
     <th>Ukuran Ban</th>
     <th>Harga</th>
+    <th>Aksi</th>
 @endsection
 
 @section('table')
@@ -25,7 +26,6 @@
             <td>{{ $row['tipe_ban'] }}</td>
             <td>{{ $row['ukuran_ban'] }}</td>
             <td>{{ $row['harga'] }}</td>
-            <th>Aksi</th>
             <td>
                 <a href="{{ route('ban.edit', $row->id) }}" class="btn btn-warning">edit</a>
                 <a href="{{ route('ban.hapus', $row->id) }}" class="btn btn-danger">hapus</a>

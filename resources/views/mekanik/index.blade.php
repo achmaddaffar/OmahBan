@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('title', 'Data Mekanik')
-@section('tambah-rute')
+@section('tambah-route')
     {{ route('mekanik.tambah') }}
 @endsection
 
@@ -11,6 +11,7 @@
     <th>Nama Mekanik</th>
     <th>Aksi</th>
 @endsection
+
 @section('table')
     @php($no = 1)
     @foreach ($mekanik as $row)

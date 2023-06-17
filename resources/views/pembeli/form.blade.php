@@ -8,7 +8,7 @@
     <div class="form-group">
         <label for="id_pembeli">ID Pembeli</label>
         <input type="text" class="form-control" id="id_pembeli" name="id_pembeli"
-            value="{{ isset($pembeli) ? $pembeli->id_pembeli : '' }}" {{ isset($pembeli) ? 'readonly' : '' }}>
+            value="{{ isset($pembeli) ? $pembeli->id_pembeli : $id }}" readonly>
     </div>
     <div class="form-group">
         <label for="nama_Pembeli">Nama Pembeli</label>
