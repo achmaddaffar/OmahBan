@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href={{ asset('css/sb-admin-2.min.css') }} rel="stylesheet">
+    <link href={{ asset('css/sb-admin-2.css') }} rel="stylesheet">
 
 </head>
 
@@ -79,7 +80,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true">x</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
