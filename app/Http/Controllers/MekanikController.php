@@ -14,7 +14,7 @@ class MekanikController extends Controller
     }
     public function tambah()
     {
-        $id = Mekanik::max('id') + 1;
+        $id = "MKN" . Mekanik::max('id') + 1;
         return view('mekanik.form', ['id' => $id]);
     }
     public function simpan(Request $request)

@@ -15,7 +15,7 @@ class PembeliController extends Controller
     }
     public function tambah()
     {
-        $id = Pembeli::max('id') + 1;
+        $id = "PBL" . Pembeli::max('id') + 1;
         return view('pembeli.form', ['id' => $id]);
     }
     public function simpan(Request $request)
