@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('title', 'Data Pembeli')
-@section('tambah-rute')
+@section('tambah-route')
     {{ route('pembeli.tambah') }}
 @endsection
 

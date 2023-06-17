@@ -1,7 +1,7 @@
 @extends('layouts.list')
 
 @section('title', 'Data Struk')
-@section('tambah-rute')
+@section('tambah-route')
     {{ route('struk.tambah') }}
 @endsection
 
