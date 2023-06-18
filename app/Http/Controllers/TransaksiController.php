@@ -21,13 +21,14 @@ class TransaksiController extends Controller
     {
         $ban = Ban::all();
         $mekanik = Mekanik::all();
-        // $id_struk = $request->id_struk;
         $struk = Struk::find($request->id_struk);
+        $id_transaksi = (Transaksi::max('id') + 1);
         
         return view('transaksi.form', [
             'ban' => $ban,
             'mekanik' => $mekanik,
             'struk' => $struk,
+            'id_transaksi' => $id_transaksi
         ]);
     }
 
@@ -69,7 +70,9 @@ class TransaksiController extends Controller
     public function edit($id)
     {
         $transaksi = Transaksi::find($id);
-        $struk = Struk::all();
+        $id_transaksi = $transaksi->id_transaksi;
+        $id_struk = Transaksi::where('id_transaksi', $id_transaksi)->first()->id_struk;
+        $struk = Struk::where('id_struk', $id_struk)->first();
         $ban = Ban::all();
         $pembeli = Pembeli::all();
         $mekanik = Mekanik::all();
@@ -79,20 +82,21 @@ class TransaksiController extends Controller
             'ban' => $ban,
             'pembeli' => $pembeli,
             'mekanik' => $mekanik,
+            'id_transaksi' => $id_transaksi
         ]);
     }
     public function update($id, Request $request)
     {
         $data = [
-            'id_transaksi' => $request->id_transaksi,
+            // 'id_transaksi' => $request->id_transaksi[0],
             'id_struk' => $request->id_struk,
-            'kode_part' => $request->kode_part,
+            'kode_part' => $request->kode_part[0],
             'id_pembeli' => $request->id_pembeli,
-            'id_mekanik' => $request->id_mekanik,
-            'jumlah' => $request->jumlah,
-            'total_harga' => $request->total_harga,
+            'id_mekanik' => $request->id_mekanik[0],
+            'jumlah' => $request->jumlah[0],
+            'total_harga' => $request->total_harga[0],
         ];
-        Transaksi::find($id)->update($data);
+        Transaksi::where('id', $id)->update($data);
         return redirect()->route('transaksi');
     }
     public function hapus($id)
