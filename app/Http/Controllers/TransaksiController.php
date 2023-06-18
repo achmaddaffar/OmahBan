@@ -53,7 +53,7 @@ class TransaksiController extends Controller
                 'id_struk' => $id_struk,
                 'kode_part' => Ban::where('kode_part', $request->kode_part[$i])->first()->kode_part,
                 'id_pembeli' => $id_pembeli,
-                'id_mekanik' => Mekanik::find($request->id_mekanik[$i])->id_mekanik,
+                'id_mekanik' => Mekanik::where('id_mekanik', $request->id_mekanik[$i])->first()->id_mekanik,
                 'jumlah' => $request->jumlah[$i],
                 'total_harga' => $request->total_harga[$i],
             ];

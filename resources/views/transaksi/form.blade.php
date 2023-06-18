@@ -41,7 +41,7 @@
                     <td>
                         <select name="id_mekanik[0]" id="nama_mekanik" class="form-control nama_mekanik">
                             @foreach ($mekanik as $mekanik)
-                                <option value="{{ $mekanik->id }}">{{ $mekanik->nama_mekanik }}</option>
+                                <option value="{{ $mekanik->id_mekanik }}">{{ $mekanik->nama_mekanik }}</option>
                             @endforeach
                         </select>
                     </td>
