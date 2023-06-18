@@ -102,11 +102,11 @@
                 ']" id="nama_barang" class="form-control nama_barang">' +
                 namaBarang + '</select></td>' +
                 '<td><input type="number" name="jumlah[' + (jumlahbaris - 1) +
-                ']" id="jumlah" class="form-control jumlah"></td>' +
+                ']" id="jumlah" class="form-control jumlah" oninput="updateTotal(this)"></td>' +
                 '<td><input type="number" name="harga[' + (jumlahbaris - 1) +
-                ']" id="harga" class="form-control harga" readonly></td>' +
+                ']" id="harga" class="form-control harga" oninput="updateTotal(this)" readonly></td>' +
                 '<td><input type="number" name="total_harga[' + (jumlahbaris - 1) +
-                ']" id="total_harga" class="form-control total_harga" readonly></td>' +
+                ']" id="total_harga" class="form-control total_harga" oninput="updateTotal(this)" readonly></td>' +
                 '<td><a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a></td>'; +
             $('.tambahProduk').append(tr);
         });
@@ -133,6 +133,14 @@
             });
             $('.total').html(total);
         }
+
+        // function selectBarang(e) {
+        // }
+        var selectBarang = document.getElementById('nama_barang');
+        selectBarang.onchange = function(e) {
+            updateTotal(e);
+        }
+        console.log(e);
 
         $('.tambahProduk').delegate('.nama_barang', 'change', function(e) {
             e.preventDefault();
