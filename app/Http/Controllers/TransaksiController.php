@@ -17,16 +17,26 @@ class TransaksiController extends Controller
 
         return view('transaksi.index', ['transaksi' => $transaksi]);
     }
-    public function tambah()
+    public function tambah(Request $request)
     {
         $ban = Ban::all();
         $pembeli = Pembeli::all();
         $mekanik = Mekanik::all();
-        $struk = Struk::all();
+        $id_struk = $request->input('id_struk');
+        $struk = Struk::find($id_struk);
+
         return view('transaksi.form', [
             'ban' => $ban,
             'pembeli' => $pembeli,
             'mekanik' => $mekanik,
+            'struk' => $struk,
+        ]);
+    }
+
+    public function pickstruk()
+    {
+        $struk = Struk::all();
+        return view('transaksi.pickstruk', [
             'struk' => $struk,
         ]);
     }
