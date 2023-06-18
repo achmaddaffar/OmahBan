@@ -11,15 +11,15 @@
                 <tr>
                     <th>No</th>
                     <th>ID Transaksi</th>
-                    <th>ID Struk</th>
-                    <th>Nama Pembeli</th>
                     <th>Nama Mekanik</th>
                     <th>Nama Produk</th>
                     <th>Jumlah Produk</th>
                     <th>Harga</th>
                     <th>Total Harga</th>
-                    <th><a href="" class="btn btn-sm btn-success add_more"><i class="fa fa-plus"></i></a>
-                    </th>
+                    @if (!isset($transaksi))
+                        <th><a href="" class="btn btn-sm btn-success add_more"><i class="fa fa-plus"></i></a>
+                        </th>
+                    @endif
                 </tr>
             </thead>
             <tbody class="tambahProduk">
@@ -28,27 +28,18 @@
                         1
                     </td>
                     <td>
-                        <input type="text" name="id_transaksi[0]" id="id_transaksi" class="form-control id_transaksi">
+                        <input type="text" name="id_transaksi[0]" id="id_transaksi" class="form-control id_transaksi"
+                            value="{{ isset($transaksi) ? $id_transaksi : 'TRS' . $id_transaksi }}" readonly
+                            data-id-transaksi="{{ $id_transaksi }}">
                     </td>
-                    <td>
-                        <select name="id_struk[0]" id="id_struk" class="form-control id_struk">
-                            <option value="">Pilih ID Struk</option>
-                            @foreach ($struk as $struk)
-                                <option value="{{ $struk->id }}">{{ $struk->id }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td>
-                        <select name="id_pembeli[0]" id="nama_pembeli" class="form-control nama_pembeli">
-                            <option value="">Pilih Pembeli</option>
-                            @foreach ($pembeli as $pembeli)
-                                <option value="{{ $pembeli->id }}">{{ $pembeli->nama_pembeli }}</option>
-                            @endforeach
-                        </select>
-                    </td>
+                    <input type="hidden" name="id_pembeli" id="nama_pembeli" class="form-control nama_pembeli"
+                        value="{{ $struk->id_pembeli }}">
+                    </input>
+                    <input type="hidden" name="id_struk" id="id_struk" class="form-control id_struk"
+                        value="{{ isset($transaksi) ? $struk->id_struk : $struk->id }}">
+                    </input>
                     <td>
                         <select name="id_mekanik[0]" id="nama_mekanik" class="form-control nama_mekanik">
-                            <option value="">Pilih Mekanik</option>
                             @foreach ($mekanik as $mekanik)
                                 <option value="{{ $mekanik->id }}">{{ $mekanik->nama_mekanik }}</option>
                             @endforeach
@@ -66,16 +57,23 @@
                     </td>
                     <td>
                         <input type="number" name="jumlah[0]" id="jumlah" class="form-control jumlah"
-                            oninput="updateTotal(this)">
+                            value="{{ isset($transaksi) ? $transaksi->jumlah : '' }}" oninput="updateTotal(this)">
                     </td>
                     <td>
                         <input type="number" name="harga[0]" id="harga" class="form-control harga"
+                            value="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}" readonly
+                            data-harga="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}"
                             oninput="updateTotal(this)">
                     </td>
-                    <td><input type="number" name="total_harga[0]" id="total_harga" class="form-control total_harga"></td>
-                    <td>
-                        <a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a>
-                    </td>
+                    <td><input type="number" name="total_harga[0]" id="total_harga" class="form-control total_harga"
+                            value="{{ isset($transaksi) ? (int) $transaksi->total_harga : '' }}" readonly
+                            data-total-harga="{{ isset($transaksi) ? $transaksi->total_harga : '' }}"
+                            oninput="updateTotal(this)"></td>
+                    @if (!isset($transaksi))
+                        <td>
+                            <a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a>
+                        </td>
+                    @endif
                 </tr>
             </tbody>
         </table>
@@ -83,23 +81,20 @@
 @endsection
 @section('script')
     <script>
+        var idTransaksi = {{ $id_transaksi }}
         $('.add_more').on('click', function(e) {
             e.preventDefault();
-            var namaPembeli = $('.nama_pembeli').html();
-            var idStruk = $('.id_struk').html();
             var namaMekanik = $('.nama_mekanik').html();
             var namaBarang = $('.nama_barang').html();
             var jumlahbaris = ($('.tambahProduk tr').length) + 1;
             console.log(jumlahbaris)
-            var tr = '<tr><td class="no">' + jumlahbaris + '</td>' +
+            var tr =
+                '<tr><td class="no">' + jumlahbaris + '</td>' +
                 '<td><input type="text" name="id_transaksi[' + (jumlahbaris - 1) +
-                ']" id="id_transaksi" class="form-control id_transaksi"></td>' +
-                '<td><select name="id_struk[' + (jumlahbaris - 1) +
-                ']" id="id_struk" class="form-control id_struk">' +
-                idStruk + '</select></td>' +
-                '<td><select name="id_pembeli[' + (jumlahbaris - 1) +
-                ']" id="nama_pembeli" class="form-control nama_pembeli">' +
-                namaPembeli + '</select></td>' +
+                ']" id="id_transaksi" class="form-control id_transaksi" value="' + "TRS" + (++idTransaksi) +
+                '" readonly></td>' +
+                // '<input type="text" name="id_struk" class="form-control id_struk" value="' + {{ $struk->id }} + '">' +
+                // '<input type="text" name="id_pembeli" id="nama_pembeli" class="form-control nama_pembeli" value="' + {{ $struk->id_pembeli }} + '"> </input>' +
                 '<td><select name="id_mekanik[' + (jumlahbaris - 1) +
                 ']" id="nama_mekanik" class="form-control nama_mekanik">' +
                 namaMekanik + '</select></td>' +
@@ -109,15 +104,16 @@
                 '<td><input type="number" name="jumlah[' + (jumlahbaris - 1) +
                 ']" id="jumlah" class="form-control jumlah"></td>' +
                 '<td><input type="number" name="harga[' + (jumlahbaris - 1) +
-                ']" id="harga" class="form-control harga"></td>' +
+                ']" id="harga" class="form-control harga" readonly></td>' +
                 '<td><input type="number" name="total_harga[' + (jumlahbaris - 1) +
-                ']" id="total_harga" class="form-control total_harga"></td>' +
+                ']" id="total_harga" class="form-control total_harga" readonly></td>' +
                 '<td><a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a></td>'; +
             $('.tambahProduk').append(tr);
         });
         $('.tambahProduk').delegate('.delete', 'click', function(e) {
             e.preventDefault();
             $(this).parent().parent().remove();
+            {{ --$id_transaksi }}
         });
 
         function updateTotal(element) {
