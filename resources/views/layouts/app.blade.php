@@ -100,14 +100,21 @@
     <script src={{ asset('vendor/jquery-easing/jquery.easing.min.js') }}></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
+    {{-- <script src={{ asset('js/sb-admin-2.min.js') }}></script> --}}
+    <script src={{ asset('js/sb-admin-2.js') }}></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.min.js"
         integrity="sha512-5NqgLBAYtvRsyAzAvEBWhaW+NoB+vARl6QiA02AFMhCWvPpi7RWResDcTGYvQtzsHVCfiUhwvsijP+3ixUk1xw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/cjs/popper.min.js"
         integrity="sha512-aVYFpZTHCqEDf+aCtROokVF2yI0TPQSn+RnpTtbCqoCWMgDYNTkptX2GzBXhCz28AS32EYUzza5xwDerTLXMtg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        rel = "stylesheet"
+        src = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity = "sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin = "anonymous"
+        referrerpolicy = "no-referrer"
+    </script>
 
 </body>
 @yield('script')
