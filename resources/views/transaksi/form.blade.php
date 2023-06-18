@@ -46,7 +46,8 @@
                         </select>
                     </td>
                     <td>
-                        <select name="kode_part[0]" id="nama_barang" class="form-control nama_barang">
+                        <select name="kode_part[0]" id="nama_barang" class="form-control nama_barang"
+                            oninput="updateTotal(this)">
                             <option value="">Nama Barang</option>
                             @foreach ($ban as $ban)
                                 <option data-harga="{{ $ban->harga }}" value="{{ $ban->kode_part }}">
@@ -81,7 +82,7 @@
 @endsection
 @section('script')
     <script>
-        var idTransaksi = {{ $id_transaksi }}
+        var idTransaksi = {{ $id_transaksi }};
         $('.add_more').on('click', function(e) {
             e.preventDefault();
             var namaMekanik = $('.nama_mekanik').html();
@@ -134,13 +135,13 @@
             $('.total').html(total);
         }
 
-        // function selectBarang(e) {
+        // // function selectBarang(e) {
+        // // }
+        // var selectBarang = document.getElementById('nama_barang');
+        // selectBarang.onchange = function(e) {
+        //     updateTotal(e);
         // }
-        var selectBarang = document.getElementById('nama_barang');
-        selectBarang.onchange = function(e) {
-            updateTotal(e);
-        }
-        console.log(e);
+        // console.log(e);
 
         $('.tambahProduk').delegate('.nama_barang', 'change', function(e) {
             e.preventDefault();
