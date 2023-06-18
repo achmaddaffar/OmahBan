@@ -47,6 +47,7 @@
                     </td>
                     <td>
                         <select name="kode_part[0]" id="nama_barang" class="form-control nama_barang">
+                            <option value="">Nama Barang</option>
                             @foreach ($ban as $ban)
                                 <option data-harga="{{ $ban->harga }}" value="{{ $ban->kode_part }}">
                                     {{ $ban->nama_barang }}
@@ -56,16 +57,18 @@
                     </td>
                     <td>
                         <input type="number" name="jumlah[0]" id="jumlah" class="form-control jumlah"
-                            value="{{ isset($transaksi) ? $transaksi->jumlah : '' }}">
+                            value="{{ isset($transaksi) ? $transaksi->jumlah : '' }}" oninput="updateTotal(this)">
                     </td>
                     <td>
                         <input type="number" name="harga[0]" id="harga" class="form-control harga"
                             value="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}" readonly
-                            data-harga="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}">
+                            data-harga="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}"
+                            oninput="updateTotal(this)">
                     </td>
                     <td><input type="number" name="total_harga[0]" id="total_harga" class="form-control total_harga"
                             value="{{ isset($transaksi) ? (int) $transaksi->total_harga : '' }}" readonly
-                            data-total-harga="{{ isset($transaksi) ? $transaksi->total_harga : '' }}"></td>
+                            data-total-harga="{{ isset($transaksi) ? $transaksi->total_harga : '' }}"
+                            oninput="updateTotal(this)"></td>
                     @if (!isset($transaksi))
                         <td>
                             <a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a>
@@ -99,11 +102,11 @@
                 ']" id="nama_barang" class="form-control nama_barang">' +
                 namaBarang + '</select></td>' +
                 '<td><input type="number" name="jumlah[' + (jumlahbaris - 1) +
-                ']" id="jumlah" class="form-control jumlah"></td>' +
+                ']" id="jumlah" class="form-control jumlah" oninput="updateTotal(this)"></td>' +
                 '<td><input type="number" name="harga[' + (jumlahbaris - 1) +
-                ']" id="harga" class="form-control harga" readonly></td>' +
+                ']" id="harga" class="form-control harga" oninput="updateTotal(this)" readonly></td>' +
                 '<td><input type="number" name="total_harga[' + (jumlahbaris - 1) +
-                ']" id="total_harga" class="form-control total_harga" readonly></td>' +
+                ']" id="total_harga" class="form-control total_harga" oninput="updateTotal(this)" readonly></td>' +
                 '<td><a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a></td>'; +
             $('.tambahProduk').append(tr);
         });
@@ -112,6 +115,14 @@
             $(this).parent().parent().remove();
             {{ --$id_transaksi }}
         });
+
+        function updateTotal(element) {
+            var tr = $(element).closest('tr');
+            var jumlah = tr.find('.jumlah').val() - 0;
+            var harga = tr.find('.harga').val() - 0;
+            var total_harga = jumlah * harga;
+            tr.find('.total_harga').val(total_harga);
+        }
 
         function totalHarga(e) {
             e.preventDefault();
@@ -122,6 +133,14 @@
             });
             $('.total').html(total);
         }
+
+        // function selectBarang(e) {
+        // }
+        var selectBarang = document.getElementById('nama_barang');
+        selectBarang.onchange = function(e) {
+            updateTotal(e);
+        }
+        console.log(e);
 
         $('.tambahProduk').delegate('.nama_barang', 'change', function(e) {
             e.preventDefault();

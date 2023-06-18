@@ -23,7 +23,7 @@ class TransaksiController extends Controller
         $mekanik = Mekanik::all();
         $struk = Struk::find($request->id_struk);
         $id_transaksi = (Transaksi::max('id') + 1);
-        
+
         return view('transaksi.form', [
             'ban' => $ban,
             'mekanik' => $mekanik,
@@ -51,7 +51,7 @@ class TransaksiController extends Controller
             $data = [
                 'id_transaksi' => $request->id_transaksi[$i],
                 'id_struk' => $id_struk,
-                'kode_part' => Ban::find($request->kode_part[$i])->kode_part,
+                'kode_part' => Ban::where('kode_part', $request->kode_part[$i])->first()->kode_part,
                 'id_pembeli' => $id_pembeli,
                 'id_mekanik' => Mekanik::find($request->id_mekanik[$i])->id_mekanik,
                 'jumlah' => $request->jumlah[$i],
