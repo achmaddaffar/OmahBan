@@ -20,14 +20,12 @@ class TransaksiController extends Controller
     public function tambah(Request $request)
     {
         $ban = Ban::all();
-        $pembeli = Pembeli::all();
         $mekanik = Mekanik::all();
-        $id_struk = $request->input('id_struk');
-        $struk = Struk::find($id_struk);
+        // $id_struk = $request->id_struk;
+        $struk = Struk::find($request->id_struk);
         
         return view('transaksi.form', [
             'ban' => $ban,
-            'pembeli' => $pembeli,
             'mekanik' => $mekanik,
             'struk' => $struk,
         ]);
@@ -46,12 +44,14 @@ class TransaksiController extends Controller
     public function simpan(Request $request)
     {
         $n = sizeof($request->id_transaksi);
+        $id_struk = struk::find($request->id_struk)->id_struk;
+        $id_pembeli = Pembeli::where('id_pembeli', $request->id_pembeli)->first()->id_pembeli;
         for ($i = 0; $i < $n; $i++) {
             $data = [
                 'id_transaksi' => $request->id_transaksi[$i],
-                'id_struk' => struk::find($request->id_struk[$i])->id_struk,
+                'id_struk' => $id_struk,
                 'kode_part' => Ban::find($request->kode_part[$i])->kode_part,
-                'id_pembeli' => Pembeli::find($request->id_pembeli[$i])->id_pembeli,
+                'id_pembeli' => $id_pembeli,
                 'id_mekanik' => Mekanik::find($request->id_mekanik[$i])->id_mekanik,
                 'jumlah' => $request->jumlah[$i],
                 'total_harga' => $request->total_harga[$i],

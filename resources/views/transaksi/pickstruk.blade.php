@@ -14,7 +14,7 @@
         <select name="id_struk" id="id_struk" class="form-control id_struk">
             <option value="">Pilih ID Struk</option>
             @foreach ($struk as $str)
-                <option value="{{ $str->id }}">{{ $str->id }}</option>
+                <option value="{{ $str->id }}">{{ $str->id_struk }}</option>
             @endforeach
         </select>
     </div>
