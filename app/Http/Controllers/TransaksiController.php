@@ -24,7 +24,7 @@ class TransaksiController extends Controller
         $mekanik = Mekanik::all();
         $id_struk = $request->input('id_struk');
         $struk = Struk::find($id_struk);
-
+        
         return view('transaksi.form', [
             'ban' => $ban,
             'pembeli' => $pembeli,

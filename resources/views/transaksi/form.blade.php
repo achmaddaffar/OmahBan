@@ -28,7 +28,7 @@
                                     1
                                 </td>
                                 <td>
-                                    <input type="text" name="id_transaksi[0]" id="id_transaksi"
+                                    <input type="text" name="id_transaksi" id="id_transaksi"
                                         class="form-control id_transaksi">
                                 </td>
                                 <td>
@@ -37,7 +37,7 @@
                                         @foreach ($struk as $struk)
                                             <option value="{{ $struk->id }}">{{ $struk->id }}</option>
                                         @endforeach
-                                    </select>
+                                    </select> 
                                 </td>
                                 <td>
                                     <select name="id_pembeli[0]" id="nama_pembeli" class="form-control nama_pembeli">
