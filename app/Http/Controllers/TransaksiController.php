@@ -36,8 +36,10 @@ class TransaksiController extends Controller
     public function pickstruk()
     {
         $struk = Struk::all();
+        $pembeli = Pembeli::all();
         return view('transaksi.pickstruk', [
             'struk' => $struk,
+            'pembeli' => $pembeli,
         ]);
     }
 

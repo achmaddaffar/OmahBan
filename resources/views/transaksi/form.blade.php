@@ -11,8 +11,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>ID Transaksi</th>
-                                <th>ID Struk</th>
-                                <th>Nama Pembeli</th>
                                 <th>Nama Mekanik</th>
                                 <th>Nama Produk</th>
                                 <th>Jumlah Produk</th>
@@ -31,22 +29,8 @@
                                     <input type="text" name="id_transaksi" id="id_transaksi"
                                         class="form-control id_transaksi">
                                 </td>
-                                <td>
-                                    <select name="id_struk[0]" id="id_struk" class="form-control id_struk">
-                                        <option value="">Pilih ID Struk</option>
-                                        @foreach ($struk as $struk)
-                                            <option value="{{ $struk->id }}">{{ $struk->id }}</option>
-                                        @endforeach
-                                    </select> 
-                                </td>
-                                <td>
-                                    <select name="id_pembeli[0]" id="nama_pembeli" class="form-control nama_pembeli">
-                                        <option value="">Pilih Pembeli</option>
-                                        @foreach ($pembeli as $pembeli)
-                                            <option value="{{ $pembeli->id }}">{{ $pembeli->nama_pembeli }}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
+                                    <input type="text" name="id_pembeli" id="nama_pembeli" class="form-control nama_pembeli" value="{{ $pembeli->id_pembeli }}">
+                                </input>
                                 <td>
                                     <select name="id_mekanik[0]" id="nama_mekanik" class="form-control nama_mekanik">
                                         @foreach ($mekanik as $mekanik)
@@ -92,12 +76,8 @@
             var tr = '<tr><td class="no">' + jumlahbaris + '</td>' +
                 '<td><input type="text" name="id_transaksi[' + (jumlahbaris - 1) +
                 ']" id="id_transaksi" class="form-control id_transaksi"></td>' +
-                '<td><select name="id_struk[' + (jumlahbaris - 1) +
                 ']" id="id_struk" class="form-control id_struk">' +
                 idStruk + '</select></td>' +
-                '<td><select name="id_pembeli[' + (jumlahbaris - 1) +
-                ']" id="nama_pembeli" class="form-control nama_pembeli">' +
-                namaPembeli + '</select></td>' +
                 '<td><select name="id_mekanik[' + (jumlahbaris - 1) +
                 ']" id="nama_mekanik" class="form-control nama_mekanik">' +
                 namaMekanik + '</select></td>' +
