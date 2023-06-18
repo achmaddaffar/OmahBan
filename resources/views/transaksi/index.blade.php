@@ -2,7 +2,7 @@
 
 @section('title', 'Data Transaksi')
 @section('tambah-route')
-    {{ route('transaksi.tambah') }}
+    {{ route('transaksi.pickstruk') }}
 @endsection
 
 @section('column-names')

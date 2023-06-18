@@ -71,10 +71,12 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::controller(TransaksiController::class)->prefix('transaksi')->group(function () {
         Route::get('', 'index')->name('transaksi');
-        Route::get('tambah', 'tambah')->name('transaksi.tambah');
-        Route::post('tambah', 'simpan')->name('transaksi.tambah.simpan');
+        Route::get('tambah/', 'tambah')->name('transaksi.tambah');
+        Route::post('tambah_struk/', 'tambah')->name('transaksi.tambah');
+        Route::post('tambah/', 'simpan')->name('transaksi.tambah.simpan');
         Route::get('edit/{id}', 'edit')->name('transaksi.edit');
         Route::post('edit/{id}', 'update')->name('transaksi.tambah.update');
         Route::get('hapus/{id}', 'hapus')->name('transaksi.hapus');
+        Route::get('pickstruk', 'pickstruk')->name('transaksi.pickstruk');
     });
 });
