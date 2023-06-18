@@ -76,6 +76,7 @@ class TransaksiController extends Controller
         $ban = Ban::all();
         $pembeli = Pembeli::all();
         $mekanik = Mekanik::all();
+        // dd($ban);
         return view('transaksi.form', [
             'transaksi' => $transaksi,
             'struk' => $struk,
