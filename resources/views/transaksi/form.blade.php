@@ -57,18 +57,15 @@
                     </td>
                     <td>
                         <input type="number" name="jumlah[0]" id="jumlah" class="form-control jumlah"
-                            value="{{ isset($transaksi) ? $transaksi->jumlah : '' }}" oninput="updateTotal(this)">
+                            oninput="updateTotal(this)">
                     </td>
                     <td>
                         <input type="number" name="harga[0]" id="harga" class="form-control harga"
-                            value="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}" readonly
-                            data-harga="{{ isset($transaksi) ? $transaksi->total_harga / $transaksi->jumlah : '' }}"
-                            oninput="updateTotal(this)">
+                            oninput="updateTotal(this)" readonly>
                     </td>
                     <td><input type="number" name="total_harga[0]" id="total_harga" class="form-control total_harga"
-                            value="{{ isset($transaksi) ? (int) $transaksi->total_harga : '' }}" readonly
-                            data-total-harga="{{ isset($transaksi) ? $transaksi->total_harga : '' }}"
-                            oninput="updateTotal(this)"></td>
+                            oninput="updateTotal(this)" readonly>
+                    </td>
                     @if (!isset($transaksi))
                         <td>
                             <a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a>
@@ -81,7 +78,7 @@
 @endsection
 @section('script')
     <script>
-        var idTransaksi = {{ $id_transaksi }}
+        var idTransaksi = "{{ $id_transaksi }}";
         $('.add_more').on('click', function(e) {
             e.preventDefault();
             var namaMekanik = $('.nama_mekanik').html();
@@ -110,6 +107,7 @@
                 '<td><a href="" class="btn btn-sm btn-danger delete"><i class="fa fa-times"></i></a></td>'; +
             $('.tambahProduk').append(tr);
         });
+
         $('.tambahProduk').delegate('.delete', 'click', function(e) {
             e.preventDefault();
             $(this).parent().parent().remove();
@@ -133,14 +131,6 @@
             });
             $('.total').html(total);
         }
-
-        // function selectBarang(e) {
-        // }
-        var selectBarang = document.getElementById('nama_barang');
-        selectBarang.onchange = function(e) {
-            updateTotal(e);
-        }
-        console.log(e);
 
         $('.tambahProduk').delegate('.nama_barang', 'change', function(e) {
             e.preventDefault();
