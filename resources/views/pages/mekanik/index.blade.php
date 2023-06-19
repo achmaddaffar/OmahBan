@@ -2,7 +2,7 @@
 
 @section('title', 'Data Mekanik')
 @section('tambah-route')
-    {{ route('mekanik.tambah') }}
+    {{ route('pages.mekanik.tambah') }}
 @endsection
 
 @section('column-names')
@@ -20,8 +20,8 @@
             <td>{{ $row->id_mekanik }}</td>
             <td>{{ $row->nama_mekanik }}</td>
             <td>
-                <a href="{{ route('mekanik.edit', $row->id) }}" class="btn btn-warning">edit</a>
-                <a href="{{ route('mekanik.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
+                <a href="{{ route('pages.mekanik.edit', $row->id) }}" class="btn btn-warning">edit</a>
+                <a href="{{ route('pages.mekanik.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
             </td>
         </tr>
     @endforeach

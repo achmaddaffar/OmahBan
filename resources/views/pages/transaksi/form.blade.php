@@ -1,7 +1,7 @@
 @extends('layouts.form')
 @section('title', 'Order')
 @section('form-action')
-    {{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}
+    {{ isset($transaksi) ? route('pages.transaksi.tambah.update', $transaksi->id) : route('pages.transaksi.tambah.simpan') }}
 @endsection
 @section('form-method', 'post')
 @section('form-content')

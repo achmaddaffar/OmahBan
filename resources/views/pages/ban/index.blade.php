@@ -1,7 +1,7 @@
 @extends('layouts.list')
 @section('title', 'Data Ban')
 @section('tambah-route')
-    {{ route('ban.tambah') }}
+    {{ route('pages.ban.tambah') }}
 @endsection
 
 @section('column-names')
@@ -27,8 +27,8 @@
             <td>{{ $row['ukuran_ban'] }}</td>
             <td>{{ $row['harga'] }}</td>
             <td>
-                <a href="{{ route('ban.edit', $row->id) }}" class="btn btn-warning">edit</a>
-                <a href="{{ route('ban.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
+                <a href="{{ route('pages.ban.edit', $row->id) }}" class="btn btn-warning">edit</a>
+                <a href="{{ route('pages.ban.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
             </td>
         </tr>
     @endforeach

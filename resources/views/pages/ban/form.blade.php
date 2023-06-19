@@ -1,7 +1,7 @@
 @extends('layouts.form')
 @section('title', 'Form Input Ban')
 @section('form-action')
-    {{ isset($ban) ? route('ban.tambah.update', $ban->id) : route('ban.tambah.simpan') }}
+    {{ isset($ban) ? route('pages.ban.tambah.update', $ban->id) : route('pages.ban.tambah.simpan') }}
 @endsection
 @section('form-method', 'post')
 @section('form-content')

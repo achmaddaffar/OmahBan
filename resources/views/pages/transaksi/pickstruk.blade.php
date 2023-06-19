@@ -1,9 +1,10 @@
+@extends('includes.app')
 @extends('layouts.form')
 
 @section('title', 'Order')
 
 @section('form-action')
-    {{ route('transaksi.tambah') }}
+    {{ route('pages.transaksi.tambah') }}
 @endsection
 
 @section('form-method', 'post')

@@ -1,7 +1,7 @@
 @extends('layouts.form')
 @section('title', 'Form Input Struk')
 @section('form-action')
-    {{ isset($struk) ? route('struk.tambah.update', $struk->id) : route('struk.tambah.simpan') }}
+    {{ isset($struk) ? route('pages.struk.tambah.update', $struk->id) : route('pages.struk.tambah.simpan') }}
 @endsection
 @section('form-method', 'post')
 @section('form-content')

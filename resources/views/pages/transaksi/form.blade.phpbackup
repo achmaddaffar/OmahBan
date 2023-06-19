@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('includes.app')
 @section('title', 'Order')
 @section('contents')
     <form
-        action="{{ isset($transaksi) ? route('transaksi.tambah.update', $transaksi->id) : route('transaksi.tambah.simpan') }}"
+        action="{{ isset($transaksi) ? route('pages.transaksi.tambah.update', $transaksi->id) : route('pages.transaksi.tambah.simpan') }}"
         method="post">
         @csrf
         <div class="card shadow mb-4">

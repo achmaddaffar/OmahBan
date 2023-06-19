@@ -1,7 +1,7 @@
 @extends('layouts.form')
 @section('title', 'Form Input Pembeli')
 @section('form-action')
-    {{ isset($pembeli) ? route('pembeli.tambah.update', $pembeli->id) : route('pembeli.tambah.simpan') }}
+    {{ isset($pembeli) ? route('pages.pembeli.tambah.update', $pembeli->id) : route('pages.pembeli.tambah.simpan') }}
 @endsection
 @section('form-method','post')
 @section('form-content')

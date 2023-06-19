@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('includes.app')
 
 @section('title', "@yield('title')")
 @section('contents')
