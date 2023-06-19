@@ -52,7 +52,7 @@ class UserController extends Controller
             ])
         ) {
             $request->session()->regenerate();
-            return redirect()->intended('pages.dashboard');
+            return redirect()->intended('dashboard');
         }
         return back()->withErrors('password', 'Wrong email or password!');
     }
