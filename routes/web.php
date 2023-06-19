@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/user/logout', 'logout')->name('user.logout');
         Route::get('dashboard', function () {
-            return view('pages.dashboard');
+            return view('pages/dashboard');
         })->name('pages.dashboard');
     });
     Route::controller(BanController::class)->prefix('ban')->group(function () {
