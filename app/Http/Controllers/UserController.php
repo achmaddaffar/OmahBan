@@ -12,7 +12,7 @@ class UserController extends Controller
     public function register()
     {
         $data['title'] = 'Register';
-        return view('register.index', $data);
+        return view('pages.register.index', $data);
     }
 
     public function registerAction(Request $request)
@@ -35,7 +35,7 @@ class UserController extends Controller
     public function login()
     {
         $data['title'] = 'Login';
-        return view('login.index', $data);
+        return view('pages.login.index', $data);
     }
 
     public function loginAction(Request $request)
@@ -52,7 +52,7 @@ class UserController extends Controller
             ])
         ) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->intended('pages.dashboard');
         }
         return back()->withErrors('password', 'Wrong email or password!');
     }

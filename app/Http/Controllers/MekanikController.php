@@ -10,12 +10,12 @@ class MekanikController extends Controller
     public function index()
     {
         $mekanik = Mekanik::all();
-        return view('mekanik.index', ['mekanik' => $mekanik]);
+        return view('pages.mekanik.index', ['mekanik' => $mekanik]);
     }
     public function tambah()
     {
         $id = "MKN" . Mekanik::max('id') + 1;
-        return view('mekanik.form', ['id' => $id]);
+        return view('pages.mekanik.form', ['id' => $id]);
     }
     public function simpan(Request $request)
     {
@@ -29,7 +29,7 @@ class MekanikController extends Controller
     public function edit($id)
     {
         $mekanik = Mekanik::find($id);
-        return view('mekanik.form', ['mekanik' => $mekanik]);
+        return view('pages.mekanik.form', ['mekanik' => $mekanik]);
     }
     public function update($id, Request $request)
     {

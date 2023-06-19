@@ -12,7 +12,7 @@ class strukController extends Controller
     public function index()
     {
         $struk = struk::all();
-        return view('struk.index', [
+        return view('pages.struk.index', [
             'struk' => $struk
         ]);
     }
@@ -20,7 +20,7 @@ class strukController extends Controller
     {
         $pembeli = Pembeli::all();
         $id = "STRUK" . (Struk::max('id') + 1);
-        return view('struk.form', [
+        return view('pages.struk.form', [
             'pembeli' => $pembeli,
             'id' => $id
         ]);
@@ -38,7 +38,7 @@ class strukController extends Controller
     {
         $struk = Struk::find($id);
         $pembeli = Pembeli::all();
-        return view('struk.form', [
+        return view('pages.struk.form', [
             'struk' => $struk,
             'pembeli' => $pembeli
         ]);

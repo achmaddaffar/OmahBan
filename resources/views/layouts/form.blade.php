@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('includes.app')
 @section('title',"@yield('title')")
 @section('contents')
     <form action="@yield('form-action')" method="@yield('form-method')">

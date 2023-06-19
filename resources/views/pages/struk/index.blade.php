@@ -2,7 +2,7 @@
 
 @section('title', 'Data Struk')
 @section('tambah-route')
-    {{ route('struk.tambah') }}
+    {{ route('pages.struk.tambah') }}
 @endsection
 
 @section('column-names')
@@ -21,8 +21,8 @@
             <td>{{ $row->id_pembeli }}</td>
             <td>{{ $row->created_at }}</td>
             <td>
-                <a href="{{ route('struk.edit', $row->id) }}" class="btn btn-warning">edit</a>
-                <a href="{{ route('struk.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
+                <a href="{{ route('pages.struk.edit', $row->id) }}" class="btn btn-warning">edit</a>
+                <a href="{{ route('pages.struk.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
             </td>
         </tr>
     @endforeach

@@ -11,12 +11,12 @@ class PembeliController extends Controller
     public function index()
     {
         $pembeli = Pembeli::all();
-        return view('pembeli.index', ['pembeli' => $pembeli]);
+        return view('pages.pembeli.index', ['pembeli' => $pembeli]);
     }
     public function tambah()
     {
         $id = "PBL" . Pembeli::max('id') + 1;
-        return view('pembeli.form', ['id' => $id]);
+        return view('pages.pembeli.form', ['id' => $id]);
     }
     public function simpan(Request $request)
     {
@@ -31,7 +31,7 @@ class PembeliController extends Controller
     public function edit($id)
     {
         $pembeli = Pembeli::find($id);
-        return view('pembeli.form', ['pembeli' => $pembeli]);
+        return view('pages.pembeli.form', ['pembeli' => $pembeli]);
     }
     public function update($id, Request $request)
     {

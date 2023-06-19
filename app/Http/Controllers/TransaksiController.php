@@ -15,7 +15,7 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::all();
 
-        return view('transaksi.index', ['transaksi' => $transaksi]);
+        return view('pages.transaksi.index', ['transaksi' => $transaksi]);
     }
     public function tambah(Request $request)
     {
@@ -24,7 +24,7 @@ class TransaksiController extends Controller
         $struk = Struk::find($request->id_struk);
         $id_transaksi = (Transaksi::max('id') + 1);
 
-        return view('transaksi.form', [
+        return view('pages.transaksi.form', [
             'ban' => $ban,
             'mekanik' => $mekanik,
             'struk' => $struk,
@@ -36,7 +36,7 @@ class TransaksiController extends Controller
     {
         $struk = Struk::all();
         $pembeli = Pembeli::all();
-        return view('transaksi.pickstruk', [
+        return view('pages.transaksi.pickstruk', [
             'struk' => $struk,
             'pembeli' => $pembeli,
         ]);
@@ -77,7 +77,7 @@ class TransaksiController extends Controller
         $pembeli = Pembeli::all();
         $mekanik = Mekanik::all();
         // dd($ban);
-        return view('transaksi.form', [
+        return view('pages.transaksi.form', [
             'transaksi' => $transaksi,
             'struk' => $struk,
             'ban' => $ban,

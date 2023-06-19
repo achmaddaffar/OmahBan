@@ -1,7 +1,7 @@
 @extends('layouts.form')
 @section('title', 'Form Input Mekanik')
 @section('form-action')
-{{ isset($mekanik) ? route('mekanik.tambah.update', $mekanik->id) : route('mekanik.tambah.simpan') }}
+{{ isset($mekanik) ? route('pages.mekanik.tambah.update', $mekanik->id) : route('pages.mekanik.tambah.simpan') }}
 @endsection
 @section('form-method','post')
 @section('form-content')

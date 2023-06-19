@@ -10,11 +10,11 @@ class BanController extends Controller
     public function index()
     {
         $ban = Ban::all();
-        return view('ban.index', ['ban' => $ban]);
+        return view('pages.ban.index', ['ban' => $ban]);
     }
     public function tambah()
     {
-        return view('ban.form');
+        return view('pages.ban.form');
     }
     public function simpan(Request $request)
     {
@@ -32,7 +32,7 @@ class BanController extends Controller
     public function edit($id)
     {
         $ban = Ban::find($id);
-        return view('ban.form', ['ban' => $ban]);
+        return view('pages.ban.form', ['ban' => $ban]);
     }
     public function update($id, Request $request)
     {

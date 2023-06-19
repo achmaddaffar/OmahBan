@@ -2,7 +2,7 @@
 
 @section('title', 'Data Transaksi')
 @section('tambah-route')
-    {{ route('transaksi.pickstruk') }}
+    {{ route('pages.transaksi.pickstruk') }}
 @endsection
 
 @section('column-names')
@@ -29,8 +29,8 @@
             <td>{{ $row->jumlah }}</td>
             <td>{{ $row->total_harga }}</td>
             <td>
-                <a href="{{ route('transaksi.edit', $row->id) }}" class="btn btn-warning">edit</a>
-                <a href="{{ route('transaksi.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
+                <a href="{{ route('pages.transaksi.edit', $row->id) }}" class="btn btn-warning">edit</a>
+                <a href="{{ route('pages.transaksi.hapus', $row->id) }}" class="btn btn-danger">hapus</a>
             </td>
         </tr>
     @endforeach
